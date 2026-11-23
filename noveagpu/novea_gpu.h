@@ -6,47 +6,47 @@
 
 /*
 * x.y.z
-* x ´ó°æ±¾
-* y ¸üÐÂ
-* z ÐÞ¸´ÎÊÌâ,ÖØ¹¹
-* ²»ÎÈ¶¨°æÎª-ºó×º
+* x å¤§ç‰ˆæœ¬
+* y æ›´æ–°
+* z ä¿®å¤é—®é¢˜,é‡æž„
+* ä¸ç¨³å®šç‰ˆä¸º-åŽç¼€
 * novea_gpu.h
-* 0.0.1 2026.11.16 01:16 Íê³ÉÔ­ÐÍ
-* 0.0.1 2026.11.17 21:24 ¿ªÊ¼±àÐ´¶àkernelÖ§³Ö
-* 0.0.1 2026.11.17 23:11 ½«NOVEA_GPU_OBJECTÅ²½øÁË¾ßÌåÊµÏÖÎÄ¼þ
-* 0.0.1 2026.11.17 23:12 ÐÞ¸ÄÁËËùÓÐ´øNOVEA_GPU_OBJECT²ÎÊýµÄº¯ÊýÐÎ²Î
-* 0.0.1 2026.11.17 23:30 Íê³ÉÁËËùÓÐº¯ÊýÐÞ¸ÄNOVEA_GPU_OBJECT²ÎÊýºóÅäÌ×µÄÂß¼­
-* 0.0.1 2026.11.17 23:50 NOVEA_GPU_OBJECT_TYPEµÄÃ¶¾ÙÐÞ¸Ä³É¸ºÊý,·½±ãºóÐø¼ÆÊý
-* 0.0.1 2026.11.18 23:04 ÕýÊ½¿ªÊ¼¶àkernelµÄ±àÐ´¹¤×÷
-* 0.1.0 2026.11.19 00:49 Íê³ÉÁË¶àkernelµÄ±àÐ´¹¤×÷
-*                        ÕâÊÇµÚÒ»¸öÕýÊ½°æ 0.1.0
-* 0.2.0 2026.11.20 00:20 ÖØ¹¹ÁËstruct NOVEA_GPU_OBJECT,Íê³ÉÁË»º³å³ØµÄÉè¼Æ
+* 0.0.1 2026.11.16 01:16 å®ŒæˆåŽŸåž‹
+* 0.0.1 2026.11.17 21:24 å¼€å§‹ç¼–å†™å¤škernelæ”¯æŒ
+* 0.0.1 2026.11.17 23:11 å°†NOVEA_GPU_OBJECTæŒªè¿›äº†å…·ä½“å®žçŽ°æ–‡ä»¶
+* 0.0.1 2026.11.17 23:12 ä¿®æ”¹äº†æ‰€æœ‰å¸¦NOVEA_GPU_OBJECTå‚æ•°çš„å‡½æ•°å½¢å‚
+* 0.0.1 2026.11.17 23:30 å®Œæˆäº†æ‰€æœ‰å‡½æ•°ä¿®æ”¹NOVEA_GPU_OBJECTå‚æ•°åŽé…å¥—çš„é€»è¾‘
+* 0.0.1 2026.11.17 23:50 NOVEA_GPU_OBJECT_TYPEçš„æžšä¸¾ä¿®æ”¹æˆè´Ÿæ•°,æ–¹ä¾¿åŽç»­è®¡æ•°
+* 0.0.1 2026.11.18 23:04 æ­£å¼å¼€å§‹å¤škernelçš„ç¼–å†™å·¥ä½œ
+* 0.1.0 2026.11.19 00:49 å®Œæˆäº†å¤škernelçš„ç¼–å†™å·¥ä½œ
+*                        è¿™æ˜¯ç¬¬ä¸€ä¸ªæ­£å¼ç‰ˆ 0.1.0
+* 0.2.0 2026.11.20 00:20 é‡æž„äº†struct NOVEA_GPU_OBJECT,å®Œæˆäº†ç¼“å†²æ± çš„è®¾è®¡
 */
 
 typedef enum
 {
-	NOVEA_GPU_OBJECT_NULL = 0, //¿Õ
-	NOVEA_GPU_OBJECT_MEM_R = -1, //ÊäÈë»º³åÇø
-	NOVEA_GPU_OBJECT_MEM_W = -2, //Êä³ö»º³åÇø
-	NOVEA_GPU_OBJECT_MEM_RW = -3, //ÊäÈëÊä³ö»º³åÇø
-	NOVEA_GPU_OBJECT_INT = -4, //ÕûÐÍ³£Á¿
-	NOVEA_GPU_OBJECT_UINT = -5, //ÎÞ·ûºÅÕûÐÍ³£Á¿
-	NOVEA_GPU_OBJECT_FLOAT = -6, //µ¥¾«¶È¸¡µãÊý³£Á¿
+	NOVEA_GPU_OBJECT_NULL = 0, //ç©º
+	NOVEA_GPU_OBJECT_MEM_R = -1, //è¾“å…¥ç¼“å†²åŒº
+	NOVEA_GPU_OBJECT_MEM_W = -2, //è¾“å‡ºç¼“å†²åŒº
+	NOVEA_GPU_OBJECT_MEM_RW = -3, //è¾“å…¥è¾“å‡ºç¼“å†²åŒº
+	NOVEA_GPU_OBJECT_INT = -4, //æ•´åž‹å¸¸é‡
+	NOVEA_GPU_OBJECT_UINT = -5, //æ— ç¬¦å·æ•´åž‹å¸¸é‡
+	NOVEA_GPU_OBJECT_FLOAT = -6, //å•ç²¾åº¦æµ®ç‚¹æ•°å¸¸é‡
 }NOVEA_GPU_OBJECT_TYPE;
 
 
 /*
-* NOVEA»ù±¾GPU¶ÔÏó
-* Ò»¸ö¶ÔÏóÖ»ÄÜ¶ÔÓ¦Ò»·ÝÄÚºË´úÂë,µ«ÊÇ¿ÉÒÔÓÐ¶à¸öÄÚºËº¯Êý
+* NOVEAåŸºæœ¬GPUå¯¹è±¡
+* ä¸€ä¸ªå¯¹è±¡åªèƒ½å¯¹åº”ä¸€ä»½å†…æ ¸ä»£ç ,ä½†æ˜¯å¯ä»¥æœ‰å¤šä¸ªå†…æ ¸å‡½æ•°
 */
 typedef struct NOVEA_GPU_OBJECT* NOVEA_GPU_OBJECT;
 
 
 /*
 * Function: noveaGpuVsn
-* ÓÃ´¦: ²éÑ¯°æ±¾ºÅ
-* ÐÞ¸ÄÊ±¼ä
-*    2026-11-19 01:03 ´´½¨Íê³Éº¯Êý
+* ç”¨å¤„: æŸ¥è¯¢ç‰ˆæœ¬å·
+* ä¿®æ”¹æ—¶é—´
+*    2026-11-19 01:03 åˆ›å»ºå®Œæˆå‡½æ•°
 */
 
 extern unsigned int noveaGpuVsn();
@@ -54,12 +54,12 @@ extern unsigned int noveaGpuVsn();
 
 /*
 * Function: noveaGpuInit
-* ÓÃ´¦: ³õÊ¼»¯OpenCL»·¾³,°üÀ¨Æ½Ì¨,Éè±¸,ÉÏÏÂÎÄºÍÃüÁî¶ÓÁÐµÄ´´½¨
-* ÐÞ¸ÄÊ±¼ä
-*    2026-11-12 00:00 ´´½¨Íê³Éº¯Êý
-*    2026-11-13 00:59 ÐÞ¸Ä²¿·Ö,ÕýÔÚ±àÐ´´ò·Ö»úÖÆ
-*    2026-11-14 04:37 Íê³Éº¯Êý,²¢ÇÒÐÞ¸´ÁËclCreateCommandQueueWithPropertiesÔÚÀÏ¾ÉµçÄÔÉÏÎÞ·¨Ê¹ÓÃµÄÎÊÌâ
-*                     ÏÖÔÚ´úÂë»á×Ô¶¯¸ù¾Ý°æ±¾À´Ñ¡ÔñÊ¹ÓÃclCreateCommandQueueWithProperties»¹ÊÇclCreateCommandQueue
+* ç”¨å¤„: åˆå§‹åŒ–OpenCLçŽ¯å¢ƒ,åŒ…æ‹¬å¹³å°,è®¾å¤‡,ä¸Šä¸‹æ–‡å’Œå‘½ä»¤é˜Ÿåˆ—çš„åˆ›å»º
+* ä¿®æ”¹æ—¶é—´
+*    2026-11-12 00:00 åˆ›å»ºå®Œæˆå‡½æ•°
+*    2026-11-13 00:59 ä¿®æ”¹éƒ¨åˆ†,æ­£åœ¨ç¼–å†™æ‰“åˆ†æœºåˆ¶
+*    2026-11-14 04:37 å®Œæˆå‡½æ•°,å¹¶ä¸”ä¿®å¤äº†clCreateCommandQueueWithPropertiesåœ¨è€æ—§ç”µè„‘ä¸Šæ— æ³•ä½¿ç”¨çš„é—®é¢˜
+*                     çŽ°åœ¨ä»£ç ä¼šè‡ªåŠ¨æ ¹æ®ç‰ˆæœ¬æ¥é€‰æ‹©ä½¿ç”¨clCreateCommandQueueWithPropertiesè¿˜æ˜¯clCreateCommandQueue
 */
 
 extern NOVEA_INFO noveaGpuInit();
@@ -67,12 +67,12 @@ extern NOVEA_INFO noveaGpuInit();
 
 /*
 * Function: noveaGpuOver
-* ÓÃ´¦: ÊÍ·ÅOpenCL»·¾³,°üÀ¨Æ½Ì¨,Éè±¸,ÉÏÏÂÎÄºÍÃüÁî¶ÓÁÐµÄÊÍ·Å
-* ÐÞ¸ÄÊ±¼ä
-*    2026-11-12 23:54 ´´½¨Íê³Éº¯Êý
-*    2026-11-15 00:23 ÓÅ»¯ÁËÊÕÎ²´¦Àí
-*    2026-11-15 19:14 È¡ÏûÁËº¯Êý¿ªÊ¼Ê±µÄinit¼ì²é
-*    2026-11-17 22:12 É¾³ýÁËdevice_score µÄÈßÓà´úÂë
+* ç”¨å¤„: é‡Šæ”¾OpenCLçŽ¯å¢ƒ,åŒ…æ‹¬å¹³å°,è®¾å¤‡,ä¸Šä¸‹æ–‡å’Œå‘½ä»¤é˜Ÿåˆ—çš„é‡Šæ”¾
+* ä¿®æ”¹æ—¶é—´
+*    2026-11-12 23:54 åˆ›å»ºå®Œæˆå‡½æ•°
+*    2026-11-15 00:23 ä¼˜åŒ–äº†æ”¶å°¾å¤„ç†
+*    2026-11-15 19:14 å–æ¶ˆäº†å‡½æ•°å¼€å§‹æ—¶çš„initæ£€æŸ¥
+*    2026-11-17 22:12 åˆ é™¤äº†device_score çš„å†—ä½™ä»£ç 
 */
 
 extern NOVEA_INFO noveaGpuOver();
@@ -80,10 +80,10 @@ extern NOVEA_INFO noveaGpuOver();
 
 /*
 * Function: noveaGpuSetSetting
-* ÓÃ´¦: ÐÞ¸ÄÄ¬ÈÏGPUÈ¨ÖØÅäÖÃ
-*    ²»¸ü¸ÄÄ³¸ö²ÎÊý¿ÉÒÔÌî0
-* ÐÞ¸ÄÊ±¼ä
-*    2026-11-14 02:51 ´´½¨Íê³Éº¯Êý
+* ç”¨å¤„: ä¿®æ”¹é»˜è®¤GPUæƒé‡é…ç½®
+*    ä¸æ›´æ”¹æŸä¸ªå‚æ•°å¯ä»¥å¡«0
+* ä¿®æ”¹æ—¶é—´
+*    2026-11-14 02:51 åˆ›å»ºå®Œæˆå‡½æ•°
 */
 
 extern NOVEA_INFO noveaGpuSetSetting(float comput, 
@@ -94,10 +94,10 @@ extern NOVEA_INFO noveaGpuSetSetting(float comput,
 
 /*
 * Function: noveaGpuObjectCreate
-* ÓÃ´¦: ³õÊ¼»¯Gpu¶ÔÏó
-* ÐÞ¸ÄÊ±¼ä
-*    2026-11-17 23:30 ´´½¨Íê³Éº¯Êý
-*    2026-11-20 00:20 ¸ù¾ÝÐÂstruct NOVEA_GPU_OBJECTÖØ¹¹ÁËº¯Êý
+* ç”¨å¤„: åˆå§‹åŒ–Gpuå¯¹è±¡
+* ä¿®æ”¹æ—¶é—´
+*    2026-11-17 23:30 åˆ›å»ºå®Œæˆå‡½æ•°
+*    2026-11-20 00:20 æ ¹æ®æ–°struct NOVEA_GPU_OBJECTé‡æž„äº†å‡½æ•°
 */
 
 extern NOVEA_INFO noveaGpuObjectCreate(NOVEA_GPU_OBJECT* object);
@@ -105,19 +105,19 @@ extern NOVEA_INFO noveaGpuObjectCreate(NOVEA_GPU_OBJECT* object);
 
 /*
 * Function: noveaGpuKernelCompile
-* ÓÃ´¦: ±àÒëÄÚºËº¯Êý
-* ÌáÊ¾: kernel_code_countÊÇkernel_codeµÄÅäÌ×²ÎÊý
-*      kernel_code¿ÉÒÔ°üº¬¶à¶ÎÔ´Âë
-*      ±ÈÈç
+* ç”¨å¤„: ç¼–è¯‘å†…æ ¸å‡½æ•°
+* æç¤º: kernel_code_countæ˜¯kernel_codeçš„é…å¥—å‚æ•°
+*      kernel_codeå¯ä»¥åŒ…å«å¤šæ®µæºç 
+*      æ¯”å¦‚
 *          const char* kernel_code[] = { kernel_code1, kernel_code2, kernel_code3};
-*          unsigned int kernel_code_count = 3; //ÒòÎªkernel_code°üº¬ÁËÈý¶Î´úÂë,ËùÒÔÕâÀïÎª3
-*      µ÷ÓÃº¯ÊýÊ± 
+*          unsigned int kernel_code_count = 3; //å› ä¸ºkernel_codeåŒ…å«äº†ä¸‰æ®µä»£ç ,æ‰€ä»¥è¿™é‡Œä¸º3
+*      è°ƒç”¨å‡½æ•°æ—¶ 
 *	       noveaGpuKernelCompile(obj, kernel_code, kernel_code_count, 1, "kernel_function");
-* ÐÞ¸ÄÊ±¼ä
-*    2026-11-15 00:27 ´´½¨Íê³Éº¯Êý
-*    2026-11-16 01:12 ÐÞÕýÁËÒ»Ð©ÎÊÌâ
-*    2026-11-18 21:39 ÖØÐ´ÁË´íÎó´¦Àí
-*    2026-11-18 23:57 ¸ù¾Ý¶àkernelµÄÐèÇó,ÖØ¹¹ÁËº¯Êý,ÐÂÔöÁËkernel_id²ÎÊý,ÓÃÓÚÖ¸¶¨ÄÚºË±àºÅ,ÒÔ¼°kernel_name²ÎÊý,ÓÃÓÚÖ¸¶¨ÄÚºËÃû³Æ
+* ä¿®æ”¹æ—¶é—´
+*    2026-11-15 00:27 åˆ›å»ºå®Œæˆå‡½æ•°
+*    2026-11-16 01:12 ä¿®æ­£äº†ä¸€äº›é—®é¢˜
+*    2026-11-18 21:39 é‡å†™äº†é”™è¯¯å¤„ç†
+*    2026-11-18 23:57 æ ¹æ®å¤škernelçš„éœ€æ±‚,é‡æž„äº†å‡½æ•°,æ–°å¢žäº†kernel_idå‚æ•°,ç”¨äºŽæŒ‡å®šå†…æ ¸ç¼–å·,ä»¥åŠkernel_nameå‚æ•°,ç”¨äºŽæŒ‡å®šå†…æ ¸åç§°
 */
 
 extern NOVEA_INFO noveaGpuKernelCompile(NOVEA_GPU_OBJECT object,
@@ -129,17 +129,17 @@ extern NOVEA_INFO noveaGpuKernelCompile(NOVEA_GPU_OBJECT object,
 
 /*
 * Function: noveaGpuObjectCreateBuffer
-* ÓÃ´¦: ´´½¨Gpu¶ÔÏó
-* ÐÞ¸ÄÊ±¼ä
-*    2026-11-15 03:01 ´´½¨Íê³Éº¯Êý
-*    2026-11-15 03:50 ½«noveaGpuCreateBuffer / noveaGpuCreateBufferSuccessºÏ²¢³ÉnoveaGpuCreateBuffer
-*    2026-11-15 17:10 ÐÂÔötype²ÎÊý
-*    2026-11-15 17:49 ¸ù¾ÝÐÂNOVEA_GPU_OBJECT½á¹¹Ìå,ÖØ¹¹ÁËº¯Êý,ÐÂÔöÁË¶Ôint,uint,floatÀàÐÍµÄÖ§³Ö
-*    2026-11-15 18:14 noveaGpuCreateBuffer ¸ÄÃûÎª noveaGpuObjectCreateBuffer
-*    2026-11-15 23:44 ÖØ¹¹ÁËº¯Êý,½«Æä¸ÄÎªÁËÑÏ¸ñµÄË³ÐòÊäÈë²ÎÊý,²»ÔÙÊÇÖ®Ç°µÄ¿ÕÎ»Ìî³ä
-*    2026-11-18 22:21 ÖØ¹¹ÁË´íÎó´¦Àí
-*    2026-11-19 00:33 Ö§³Ö¶àkernel,ÐÂÔöÁËkernel_id²ÎÊý,ÓÃÓÚÖ¸¶¨ÄÚºË±àºÅ
-*    2026-11-20 00:20 ¸ù¾ÝÐÂstruct NOVEA_GPU_OBJECTÖØ¹¹ÁËº¯Êý
+* ç”¨å¤„: åˆ›å»ºGpuå¯¹è±¡
+* ä¿®æ”¹æ—¶é—´
+*    2026-11-15 03:01 åˆ›å»ºå®Œæˆå‡½æ•°
+*    2026-11-15 03:50 å°†noveaGpuCreateBuffer / noveaGpuCreateBufferSuccessåˆå¹¶æˆnoveaGpuCreateBuffer
+*    2026-11-15 17:10 æ–°å¢žtypeå‚æ•°
+*    2026-11-15 17:49 æ ¹æ®æ–°NOVEA_GPU_OBJECTç»“æž„ä½“,é‡æž„äº†å‡½æ•°,æ–°å¢žäº†å¯¹int,uint,floatç±»åž‹çš„æ”¯æŒ
+*    2026-11-15 18:14 noveaGpuCreateBuffer æ”¹åä¸º noveaGpuObjectCreateBuffer
+*    2026-11-15 23:44 é‡æž„äº†å‡½æ•°,å°†å…¶æ”¹ä¸ºäº†ä¸¥æ ¼çš„é¡ºåºè¾“å…¥å‚æ•°,ä¸å†æ˜¯ä¹‹å‰çš„ç©ºä½å¡«å……
+*    2026-11-18 22:21 é‡æž„äº†é”™è¯¯å¤„ç†
+*    2026-11-19 00:33 æ”¯æŒå¤škernel,æ–°å¢žäº†kernel_idå‚æ•°,ç”¨äºŽæŒ‡å®šå†…æ ¸ç¼–å·
+*    2026-11-20 00:20 æ ¹æ®æ–°struct NOVEA_GPU_OBJECTé‡æž„äº†å‡½æ•°
 */
 
 extern NOVEA_INFO noveaGpuObjectCreateBuffer(NOVEA_GPU_OBJECT object,
@@ -151,10 +151,10 @@ extern NOVEA_INFO noveaGpuObjectCreateBuffer(NOVEA_GPU_OBJECT object,
 
 /*
 * Function: noveaGpuObjectRelease
-* ÓÃ´¦: ÊÍ·ÅGpu¶ÔÏó
-* ÐÞ¸ÄÊ±¼ä
-*    2026-11-15 03:09 ´´½¨Íê³Éº¯Êý
-*    2026-11-20 00:20 ¸ù¾ÝÐÂstruct NOVEA_GPU_OBJECTÖØ¹¹ÁËº¯Êý
+* ç”¨å¤„: é‡Šæ”¾Gpuå¯¹è±¡
+* ä¿®æ”¹æ—¶é—´
+*    2026-11-15 03:09 åˆ›å»ºå®Œæˆå‡½æ•°
+*    2026-11-20 00:20 æ ¹æ®æ–°struct NOVEA_GPU_OBJECTé‡æž„äº†å‡½æ•°
 */
 
 extern NOVEA_INFO noveaGpuObjectRelease(NOVEA_GPU_OBJECT object);
@@ -162,13 +162,13 @@ extern NOVEA_INFO noveaGpuObjectRelease(NOVEA_GPU_OBJECT object);
 
 /*
 * Function: noveaGpuCalculate
-* ÓÃ´¦: Ö´ÐÐGpu¼ÆËã
-* ÐÞ¸ÄÊ±¼ä
-*    2026-11-18 18:41 ´´½¨Íê³Éº¯Êý
-*    2026-11-18 21:55 ÖØ¹¹ÁË´íÎó´¦Àí
-*    2026-11-18 22:42 Ìí¼ÓÁË²ÎÊýgpu_rww,ÒâË¼ÊÇ(GPU RW/W),ÔÚ¼ÆËãºó½«ÊäÈëÊä³ö»º³åÇøµÄÊý¾ÝÐ´»ØÖ÷»úÄÚ´æ,Èç¹ûÎªNOVEA_TRUE,Ôò»á½«ÊäÈëÊä³ö»º³åÇøµÄÊý¾ÝÐ´»ØÖ÷»úÄÚ´æ,Èç¹ûÎªNOVEA_FALSE,Ôò²»»á
-*                     ÄÚ²¿Ê¹ÓÃÁËNOVEA_BOOL_CONVERT,Äú²»±Øµ£ÐÄÊäÈëµÄ²ÎÊýÊÇ·ñÎªNOVEA_TRUE/NOVEA_FALSE,Ö»ÒªÊÇ·Ç0¼´ÎªNOVEA_TRUE,0¼´ÎªNOVEA_FALSE
-*    2026-11-19 00:33 Ö§³Ö¶àkernel
+* ç”¨å¤„: æ‰§è¡ŒGpuè®¡ç®—
+* ä¿®æ”¹æ—¶é—´
+*    2026-11-18 18:41 åˆ›å»ºå®Œæˆå‡½æ•°
+*    2026-11-18 21:55 é‡æž„äº†é”™è¯¯å¤„ç†
+*    2026-11-18 22:42 æ·»åŠ äº†å‚æ•°gpu_rww,æ„æ€æ˜¯(GPU RW/W),åœ¨è®¡ç®—åŽå°†è¾“å…¥è¾“å‡ºç¼“å†²åŒºçš„æ•°æ®å†™å›žä¸»æœºå†…å­˜,å¦‚æžœä¸ºNOVEA_TRUE,åˆ™ä¼šå°†è¾“å…¥è¾“å‡ºç¼“å†²åŒºçš„æ•°æ®å†™å›žä¸»æœºå†…å­˜,å¦‚æžœä¸ºNOVEA_FALSE,åˆ™ä¸ä¼š
+*                     å†…éƒ¨ä½¿ç”¨äº†NOVEA_BOOL_CONVERT,æ‚¨ä¸å¿…æ‹…å¿ƒè¾“å…¥çš„å‚æ•°æ˜¯å¦ä¸ºNOVEA_TRUE/NOVEA_FALSE,åªè¦æ˜¯éž0å³ä¸ºNOVEA_TRUE,0å³ä¸ºNOVEA_FALSE
+*    2026-11-19 00:33 æ”¯æŒå¤škernel
 */
 
 extern NOVEA_INFO noveaGpuCalculate(NOVEA_GPU_OBJECT object, 

@@ -4,25 +4,25 @@
 
 /*
 * NOVEA_GPU_OBJECT
-*  ÓÃÓÚgpu¶ÔÏó
-* ĞŞ¸ÄÓÚ
-*  2026-11-12 00:00 ´´½¨½á¹¹Ìå
-*  2026-11-15 02:41 ĞÂÌícalculate
-*  2026-11-15 02:51 calculateĞÂÌíresource
-*  2026-11-15 16:30 ÖØ¹¹ÁËcalculate
-*  2026-11-15 18:17 ĞÂÌíresource_c
+*  ç”¨äºgpuå¯¹è±¡
+* ä¿®æ”¹äº
+*  2026-11-12 00:00 åˆ›å»ºç»“æ„ä½“
+*  2026-11-15 02:41 æ–°æ·»calculate
+*  2026-11-15 02:51 calculateæ–°æ·»resource
+*  2026-11-15 16:30 é‡æ„äº†calculate
+*  2026-11-15 18:17 æ–°æ·»resource_c
 *
 */
 
 struct NOVEA_GPU_OBJECT
 {
-	cl_program program; //³ÌĞò´úÂë
+	cl_program program; //ç¨‹åºä»£ç 
 	struct
 	{
 		struct
 		{
-			cl_kernel kernel; //ÄÚºË´úÂë
-			unsigned int id;  //ÄÚºË±àºÅ
+			cl_kernel kernel; //å†…æ ¸ä»£ç 
+			unsigned int id;  //å†…æ ¸ç¼–å·
 			struct
 			{
 				struct
@@ -30,28 +30,28 @@ struct NOVEA_GPU_OBJECT
 					NOVEA_GPU_OBJECT_TYPE type;
 					union
 					{
-						unsigned parameter_id; //»º³åÇøÖ¸Õë
-						int parameter_i; //ÕûĞÎ³£Á¿
-						unsigned int parameter_ui; //ÎŞ·ûºÅÕûĞÍ³£Á¿
-						float parameter_f; //µ¥¾«¶È¸¡µãÊı³£Á¿
+						unsigned parameter_id; //ç¼“å†²åŒºæŒ‡é’ˆ
+						int parameter_i; //æ•´å½¢å¸¸é‡
+						unsigned int parameter_ui; //æ— ç¬¦å·æ•´å‹å¸¸é‡
+						float parameter_f; //å•ç²¾åº¦æµ®ç‚¹æ•°å¸¸é‡
 					}parameter;
-					void* resource; //×ÊÔ´Ö¸Õë
-					size_t size; //×ÊÔ´´óĞ¡
+					void* resource; //èµ„æºæŒ‡é’ˆ
+					size_t size; //èµ„æºå¤§å°
 				}*calculate;
-				unsigned int size; //´óĞ¡
-			}calculate; //¼ÆËã¶ÔÏó
+				unsigned int size; //å¤§å°
+			}calculate; //è®¡ç®—å¯¹è±¡
 		}*kernel;
-		unsigned int size; //ÄÚºËÊıÁ¿
+		unsigned int size; //å†…æ ¸æ•°é‡
 	}kernel;
 	struct
 	{
 		struct
 		{
-			cl_mem parameter; //»º³åÇøÖ¸Õë
-			void* resource; //×ÊÔ´Ö¸Õë
-		}*pool; //»º³åÇø
-		unsigned int size; //»º³åÇø´óĞ¡
-	}pool; //»º³åÇø³Ø
+			cl_mem parameter; //ç¼“å†²åŒºæŒ‡é’ˆ
+			void* resource; //èµ„æºæŒ‡é’ˆ
+		}*pool; //ç¼“å†²åŒº
+		unsigned int size; //ç¼“å†²åŒºå¤§å°
+	}pool; //ç¼“å†²åŒºæ± 
 };
 
 static cl_platform_id novea_gpu_platform;
@@ -64,10 +64,10 @@ static unsigned int novea_gpu_vsn[3] = { 0,2,0 };
 
 static struct
 {
-	float comput; //¼ÆËãÄÜÁ¦
-	float global_vram; //È«¾ÖÏÔ´æ
-	float local_mem; //±¾µØÄÚ´æ
-	float max_group; //×î´ó¹¤×÷×é
+	float comput; //è®¡ç®—èƒ½åŠ›
+	float global_vram; //å…¨å±€æ˜¾å­˜
+	float local_mem; //æœ¬åœ°å†…å­˜
+	float max_group; //æœ€å¤§å·¥ä½œç»„
 }novea_gpu_setting = { .5f, .25f, .1f, .1f };
 
 extern unsigned int noveaGpuVsn()
@@ -156,11 +156,11 @@ extern NOVEA_INFO noveaGpuInit()
 		}
 
 		/*
-			CL_DEVICE_MAX_COMPUTE_UNITS	cl_uint	¼ÆËãµ¥ÔªÊı
-			CL_DEVICE_MAX_CLOCK_FREQUENCY	cl_uint	×î¸ßÆµÂÊ(MHz)
-			CL_DEVICE_GLOBAL_MEM_SIZE	cl_ulong	È«¾ÖÄÚ´æ(×Ö½Ú)
-			CL_DEVICE_LOCAL_MEM_SIZE	cl_ulong	±¾µØÄÚ´æ(×Ö½Ú)
-			CL_DEVICE_MAX_WORK_GROUP_SIZE	size_t	×î´ó¹¤×÷×é
+			CL_DEVICE_MAX_COMPUTE_UNITS	cl_uint	è®¡ç®—å•å…ƒæ•°
+			CL_DEVICE_MAX_CLOCK_FREQUENCY	cl_uint	æœ€é«˜é¢‘ç‡(MHz)
+			CL_DEVICE_GLOBAL_MEM_SIZE	cl_ulong	å…¨å±€å†…å­˜(å­—èŠ‚)
+			CL_DEVICE_LOCAL_MEM_SIZE	cl_ulong	æœ¬åœ°å†…å­˜(å­—èŠ‚)
+			CL_DEVICE_MAX_WORK_GROUP_SIZE	size_t	æœ€å¤§å·¥ä½œç»„
 		*/
 
 
@@ -169,7 +169,7 @@ extern NOVEA_INFO noveaGpuInit()
 			float scroe = 0;
 
 			{
-				//¼ÆËãÄÜÁ¦
+				//è®¡ç®—èƒ½åŠ›
 				cl_uint 
 					count = 0,
 					count_2 = 0;
@@ -179,21 +179,21 @@ extern NOVEA_INFO noveaGpuInit()
 			}
 
 			{
-				//È«¾ÖÄÚ´æ
+				//å…¨å±€å†…å­˜
 				cl_ulong count = 0;
 				clGetDeviceInfo(device[index_2], CL_DEVICE_GLOBAL_MEM_SIZE, sizeof(cl_ulong), &count, NOVEA_NULL);
 				scroe += (((float)count / (1024.f * 1024.f * 1024.f)) / 16.f) * 100.f * novea_gpu_setting.global_vram;
 			}
 
 			{
-				//±¾µØÄÚ´æ
+				//æœ¬åœ°å†…å­˜
 				cl_ulong count = 0;
 				clGetDeviceInfo(device[index_2], CL_DEVICE_LOCAL_MEM_SIZE, sizeof(cl_ulong), &count, NOVEA_NULL);
 				scroe += (((float)count / 1024.f) / 64.f) * 100.f * novea_gpu_setting.local_mem;
 			}
 
 			{
-				//×î´ó¹¤×÷×é
+				//æœ€å¤§å·¥ä½œç»„
 				size_t count = 0;
 				clGetDeviceInfo(device[index_2], CL_DEVICE_MAX_WORK_GROUP_SIZE, sizeof(size_t), &count, NOVEA_NULL);
 				scroe += ((float)count / 1024.0f) * 100.0f * novea_gpu_setting.max_group;
@@ -246,7 +246,7 @@ extern NOVEA_INFO noveaGpuInit()
 	novea_gpu_init = NOVEA_TRUE;
 	return NOVEA_INFO_SUCCESS;
 
-	//´íÎó´¦Àí
+	//é”™è¯¯å¤„ç†
 
 	{
 	error_error:
@@ -374,7 +374,7 @@ extern NOVEA_INFO noveaGpuKernelCompile(NOVEA_GPU_OBJECT object,
 
 	return NOVEA_INFO_SUCCESS;
 
-	//´íÎó´¦Àí
+	//é”™è¯¯å¤„ç†
 
 	{
 	error_serious_clrelease:
@@ -534,7 +534,7 @@ extern NOVEA_INFO noveaGpuObjectCreateBuffer(NOVEA_GPU_OBJECT object,
 
 	return NOVEA_INFO_SUCCESS;
 
-	//´íÎó´¦Àí
+	//é”™è¯¯å¤„ç†
 
 	{
 	error_error:
@@ -672,7 +672,7 @@ extern NOVEA_INFO noveaGpuCalculate(NOVEA_GPU_OBJECT object,
 
 	return NOVEA_INFO_SUCCESS;
 
-	//´íÎó´¦Àí
+	//é”™è¯¯å¤„ç†
 
 	{
 	error_average:

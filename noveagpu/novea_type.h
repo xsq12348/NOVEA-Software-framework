@@ -4,35 +4,35 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define NOVEA_NULL (0) //¿Õ
-#define NOVEA_TRUE (1) //Õæ
-#define NOVEA_FALSE (0) //¼Ù	
-#define NOVEA_BOOL_CONVERT(novea_bool) (!!(novea_bool)) //²¼¶ûÖµ×ª»»
-#define NOVEA_STR(str) ""#str //×ª»»×Ö·û´®
-#define NOVEA_CODE_ON if(1) //´úÂë¿é¿ªÆô
-#define NOVEA_CODE_OFF if(0) //´úÂë¿é¹Ø±Õ
+#define NOVEA_NULL (0) //ç©º
+#define NOVEA_TRUE (1) //çœŸ
+#define NOVEA_FALSE (0) //å‡	
+#define NOVEA_BOOL_CONVERT(novea_bool) (!!(novea_bool)) //å¸ƒå°”å€¼è½¬æ¢
+#define NOVEA_STR(str) ""#str //è½¬æ¢å­—ç¬¦ä¸²
+#define NOVEA_CODE_ON if(1) //ä»£ç å—å¼€å¯
+#define NOVEA_CODE_OFF if(0) //ä»£ç å—å…³é—­
 
 typedef unsigned char NOVEA_BOOL;
 
 /*
 * NOVEA_INFO
-*  ÓÃÓÚÌáÊ¾ÐÅÏ¢,»òµ±×÷º¯Êý·µ»ØÖµ
-* ÐÞ¸ÄÓÚ
-*  2026-11-12 00:05 ´´½¨Ã¶¾Ù
+*  ç”¨äºŽæç¤ºä¿¡æ¯,æˆ–å½“ä½œå‡½æ•°è¿”å›žå€¼
+* ä¿®æ”¹äºŽ
+*  2026-11-12 00:05 åˆ›å»ºæžšä¸¾
 */
 typedef enum
 {
-	NOVEA_INFO_SUCCESS = 0, //³É¹¦
-	NOVEA_INFO_ERROR, //´íÎó
-	NOVEA_INFO_ERROR_AVERAGE, //Ò»°ã´íÎó
-	NOVEA_INFO_ERROR_SERIOUS, //ÑÏÖØ´íÎó
-	NOVEA_INFO_ERROR_FATAL, //ÖÂÃü´íÎó
-	NOVEA_INFO_WARNING, //¾¯¸æ
-	//NOVEA_INFO, //ÐÅÏ¢
-	NOVEA_INFO_PROMPT, //ÌáÊ¾
-	NOVEA_INFO_MEM_QUESTION, //ÄÚ´æÎÊÌâ
-	NOVEA_INFO_MEM_INS, //ÄÚ´æ²»×ã
-	NOVEA_INFO_PLACEHOLDER, //Õ¼Î»·û
+	NOVEA_INFO_SUCCESS = 0, //æˆåŠŸ
+	NOVEA_INFO_ERROR, //é”™è¯¯
+	NOVEA_INFO_ERROR_AVERAGE, //ä¸€èˆ¬é”™è¯¯
+	NOVEA_INFO_ERROR_SERIOUS, //ä¸¥é‡é”™è¯¯
+	NOVEA_INFO_ERROR_FATAL, //è‡´å‘½é”™è¯¯
+	NOVEA_INFO_WARNING, //è­¦å‘Š
+	//NOVEA_INFO, //ä¿¡æ¯
+	NOVEA_INFO_PROMPT, //æç¤º
+	NOVEA_INFO_MEM_QUESTION, //å†…å­˜é—®é¢˜
+	NOVEA_INFO_MEM_INS, //å†…å­˜ä¸è¶³
+	NOVEA_INFO_PLACEHOLDER, //å ä½ç¬¦
 }NOVEA_INFO;
 
 #endif
